@@ -1,0 +1,15 @@
+logging:
+    level:
+        ROOT: DEBUG
+        mx.com.dxesoft.lunchtime: DEBUG
+
+spring:
+    data:
+        mongodb:
+            uri: mongodb://aquino:mendez@localhost:32768/xcuaana
+    jackson:
+            serialization.indent_output: true
+
+server:
+    port: 8085
+
