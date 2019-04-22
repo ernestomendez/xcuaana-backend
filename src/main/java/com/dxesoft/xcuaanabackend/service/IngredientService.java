@@ -20,13 +20,18 @@ public class IngredientService {
     }
 
     public List<Ingredient> findAll() {
+        log.debug("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n\n\n\n");
         log.debug("Request to find all ingredients");
+        log.debug("\n\n\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 
         return ingredientRepository.findAll();
     }
 
     public Ingredient saveIngredient(Ingredient ingredient) {
+        log.debug("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n\n\n\n");
         log.debug("Request to save an Ingredient");
+        log.debug("\n\n\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+
 
         return ingredientRepository.save(ingredient);
     }

@@ -20,7 +20,9 @@ public class ComidaService {
     }
 
     public List<Meal> findAll() {
+        log.debug("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n\n\n\n");
         log.debug("Request to find all the meals");
+        log.debug("\n\n\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 
         return comidaRepository.findAll();
     }

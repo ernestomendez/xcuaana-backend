@@ -11,5 +11,15 @@ spring:
             serialization.indent_output: true
 
 server:
-    port: 8085
+    port: 9002
 
+
+keycloak:
+    realm: Xcuaana-dosis
+    bearer-only: true
+    auth-server-url: http://localhost:8080/auth
+    ssl-required: external
+    resource: Xcuaana-backend
+    verify-token-audience: true
+    use-resource-role-mappings: true
+    principal-attribute: preferred_username

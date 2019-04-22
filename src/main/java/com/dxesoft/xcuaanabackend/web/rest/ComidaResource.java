@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -26,8 +27,9 @@ public class ComidaResource {
     }
 
 
-    @GetMapping(path = "/comida",
+    @GetMapping(path = "/user/comida",
             produces = { "application/json" })
+    @Secured("ROLE_USER")
     public ResponseEntity<List<Meal>>findAll() {
         log.debug("REST request to get all the Horarios de comida");
 
@@ -36,14 +38,17 @@ public class ComidaResource {
         return new ResponseEntity<List<Meal>>(comidas, HttpStatus.OK);
     }
 
-    @PostMapping(path = "/comida",
+    @PostMapping(path = "/admin/comida",
             produces = { "application/json" })
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<Meal> saveMeal(@Valid @RequestBody Meal meal) throws URISyntaxException {
+        log.debug("************************************************************\n\n\n\n");
         log.debug("Rest request to save a meal");
+        log.debug("\n\n\n\n************************************************************");
 
         final Meal result = comidaService.saveMeal(meal);
 
-        return ResponseEntity.created(new URI("/api/v1/comida/" + result.getId()))
+        return ResponseEntity.created(new URI("/api/v1/admin/comida/" + result.getId()))
                 .body(result);
     }
 }
